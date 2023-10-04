@@ -17,7 +17,20 @@ monthly_challange_dict = {
   "december":"Practise flute",
 }
 
+
+
 # Create your views here.
+
+def index(request):
+   months = list(monthly_challange_dict.keys())
+   lists = ""
+   for month in months:
+      capitalized_month = month.capitalize()
+      month_path = reverse("month-challange",args=[month])
+      lists +=  f"<li><a href='{month_path}'>{capitalized_month}</a></li>"
+   response_data = f"<ul>{lists}</ul>"
+   return HttpResponse(response_data)
+
 def monthly_challange_number(request,month):
     months = list(monthly_challange_dict.keys())
     if month > len(months):
