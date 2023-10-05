@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse , HttpResponseNotFound, HttpResponseRedirect
+from django.http import Http404 , HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
 from django.template.loader import render_to_string
 
@@ -46,5 +46,5 @@ def monthly_challange(request,month):
         "month_name":month
      })
   except: 
-    return HttpResponseNotFound("You have entered wrong value")
+    raise Http404()
      
