@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse , HttpResponseNotFound, HttpResponseRedirect
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 monthly_challange_dict = {
   "january":"Wake up at 6:00 am",
@@ -44,7 +45,8 @@ def monthly_challange(request,month):
   challange_text = None
   try:
      challange_text = monthly_challange_dict[month];
-     return HttpResponse(challange_text)
+     response_data = render_to_string("challanges/challange.html");
+     return HttpResponse(response_data)
   except: 
     return HttpResponseNotFound("You have entered wrong value")
      
