@@ -47,7 +47,7 @@ def monthly_challange(request,month):
      challange_text = monthly_challange_dict[month];
      return render(request, "challanges/challange.html",{
         "text": challange_text,
-        "month_name":month.capitalize()
+        "month_name":month
      })
   except: 
     return HttpResponseNotFound("You have entered wrong value")
