@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+Blog App
+{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock css_files %}
+{% block content %}
+{% include "blog/includes/navigation.html" %}
+
+<section class="top-posts">
+  <h1 style="margin-bottom:4rem">All Posts</h1>
+  <ul class="top-posts_list">
+
+    {% for post in latest_posts %}
+    {% include "blog/includes/post-preview.html" %}
+    {% endfor %}
+  
+  </ul>
+</section>
+
+{% endblock content %}

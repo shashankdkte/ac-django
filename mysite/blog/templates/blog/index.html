@@ -25,15 +25,9 @@ Blog App
 <section class="top-posts">
   <h1>My Top Picks</h1>
   <ul class="top-posts_list">
-    <li class="top-posts_list_single">
-      <img src="{% static "blog/images/001-garden.svg" %}" alt=""/>
-    </li>
-    <li class="top-posts_list_single">
-      <img src="{% static "blog/images/014-hotairballoon.svg" %}" alt=""/>
-    </li>
-    <li class="top-posts_list_single">
-      <img src="{% static "blog/images/021-beach.svg" %}" alt=""/>
-    </li>
+     {% for post in latest_posts %}
+    {% include "blog/includes/post-preview.html" %}
+    {% endfor %}
   </ul>
 </section>
 
