@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% load static %}
+
+{% block title %}
+Blog App
+{% endblock title %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static "blog/index.css" %}">
+{% endblock css_files %}
+{% block content %}
+{% include "blog/includes/navigation.html" %}
+<section class="introduction">
+  <div class="img-container">
+    <div class="img">
+      <img src="{% static "blog/images/014-freelancer.svg" %}" alt=""/>
+    </div>
+  </div>
+  <div class="introduction_content">
+    <p>Hi am Shashank , a software developer and an Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae,
+      debitis voluptates, est tenetur architecto itaque sunt
+      reprehenderit, consectetur totam nesciunt at facere.</p>
+  </div>
+</section>
+
+<section class="top-posts">
+  <h1>My Top Picks</h1>
+  <ul class="top-posts_list">
+    <li class="top-posts_list_single">
+      <img src="{% static "blog/images/001-garden.svg" %}" alt=""/>
+    </li>
+    <li class="top-posts_list_single">
+      <img src="{% static "blog/images/014-hotairballoon.svg" %}" alt=""/>
+    </li>
+    <li class="top-posts_list_single">
+      <img src="{% static "blog/images/021-beach.svg" %}" alt=""/>
+    </li>
+  </ul>
+</section>
+
+<section class="journey">
+  <div class="journey_container">
+    <div class="single-journey"><img src="{% static "blog/images/028-windmill.svg" %}" alt=""/></div>
+    <div class="single-journey"><img src="{% static "blog/images/023-rainbow.svg" %}" alt=""/></div>
+  </div>
+</section>
+{% endblock content %}

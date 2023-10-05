@@ -1,0 +1,104 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body{
+  font-family: sans-serif;
+}
+
+nav {
+ 
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem ;
+
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+.introduction {
+ 
+  height: 75vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 6rem;
+}
+
+.img-container, 
+.introduction_content{
+height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.img{
+  height: 15rem;
+  width: 15rem;
+  border:1px solid black;
+  border-radius: 50%;
+
+ 
+  background-repeat: no-repeat;
+}
+img{
+  width: 100%;
+}
+
+
+
+.top-posts{
+  margin-bottom: 6rem;
+}
+
+.top-posts h1{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.top-posts_list{
+  
+  height: 50vh;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.top-posts_list_single{
+   height: 10rem;
+  width: 10rem;
+  /* border:1px solid black; */
+  border-radius: 2%;
+}
+
+.journey {
+  height: 70vh;
+
+  padding: 1rem 2rem;
+  margin-bottom: 6rem;
+}
+.journey_container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9rem;
+  height: 80%;
+}
+
+.single-journey{
+  
+  /* border: 1px solid gray; */
+ 
+  height: 100%;
+}
