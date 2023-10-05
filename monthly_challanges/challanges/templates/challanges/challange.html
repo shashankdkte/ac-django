@@ -2,12 +2,18 @@
 {%block page_title%}
   {{month_name|title}}
 {%endblock%}
+
 {%block content %}
 {% include "challanges/includes/header.html" %}
-    <h1>Monthly Challange {{month_name|title}}</h1>
+<div class="container">
+  <div class="content">
+    
+    <h1>{{month_name|title}} Challange</h1>
     {% if text is not None%}
-      <h2>{{text}}</h2>
-      {%else%}
-      <p>There is no challange for this month</p>
-      {%endif%}
+    <h2>{{text}}</h2>
+    {%else%}
+    <p>There is no challange for this month</p>
+    {%endif%}
+  </div>
+</div>
 {%endblock%}
