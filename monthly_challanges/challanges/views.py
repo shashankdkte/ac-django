@@ -24,13 +24,9 @@ monthly_challange_dict = {
 
 def index(request):
    months = list(monthly_challange_dict.keys())
-   lists = ""
-   for month in months:
-      capitalized_month = month.capitalize()
-      month_path = reverse("month-challange",args=[month])
-      lists +=  f"<li><a href='{month_path}'>{capitalized_month}</a></li>"
-   response_data = f"<ul>{lists}</ul>"
-   return HttpResponse(response_data)
+   return render(request,"challanges/index.html", {
+      "months": months
+   })
 
 def monthly_challange_number(request,month):
     months = list(monthly_challange_dict.keys())
