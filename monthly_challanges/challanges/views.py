@@ -12,7 +12,7 @@ monthly_challange_dict = {
   "june":"Drink 8 glasses water",
   "july":"Consume no sugar",
   "august":"Consume no Salt",
-   "september":"Practise node",
+   "september":None,
   "november":"Practise aspnet",
   "november":"Practise algorithm",
   "december":"Practise flute",
