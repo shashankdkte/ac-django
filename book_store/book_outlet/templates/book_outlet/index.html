@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+<strong>Books Application</strong>
+{% endblock title %}
+
+
+{% block content %}
+<div class="book-list">
+  {% for book in books %}
+  {% comment %} <a href="{% url "book-detail" book.id %}"> {% endcomment %}
+  <a href="{{book.get_absolute_url }}">
+  <div class="book-item">
+    <h3>{{book.title}}</h3>
+    <p>{{book.author}}</p>
+    <strong>⭐{{book.rating}}</strong>
+    {% if  book.is_bestselling == True%}
+    <h3>{{'Best Seller'}}</h3>
+    {% endif %}
+  </div>
+</a>
+  {% endfor %}
+</div>
+{% endblock content %}

@@ -1,5 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.urls import reverse
+
 
 # Create your models here.
 class Book(models.Model):
@@ -13,4 +15,7 @@ class Book(models.Model):
 
   def __str__(self):
     return f" Books info : \n\t title:{self.title} \n\t rating:  {self.rating}\n\t author: {self.author} \n\t bestSeller: {self.is_bestselling}\n\n"
+  
+  def get_absolute_url(self):
+      return reverse("book-detail", args=[self.id])
   
