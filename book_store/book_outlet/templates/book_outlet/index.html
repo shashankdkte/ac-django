@@ -6,9 +6,12 @@
 
 
 {% block content %}
+   <h4>Number of books : {{number}}</h4>
+    <h4>Average Rating: {{average.rating__avg}}</h4>
 <div class="book-list">
   {% for book in books %}
   {% comment %} <a href="{% url "book-detail" book.id %}"> {% endcomment %}
+ 
   <a href="{{book.get_absolute_url }}">
   <div class="book-item">
     <h3>{{book.title}}</h3>
