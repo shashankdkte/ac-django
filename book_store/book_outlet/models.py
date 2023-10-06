@@ -4,6 +4,15 @@ from django.urls import reverse
 from django.template.defaultfilters import slugify
 
 # Create your models here.
+class Country(models.Model):
+   name = models.CharField(max_length=80)
+   code = models.CharField(max_length=2)
+   def __str__(self):
+        return self.name
+
+   class Meta:
+        verbose_name_plural = "Countries"
+
 class Address(models.Model):
    street = models.CharField(max_length=50)
    postal_code = models.CharField(max_length=5)
@@ -34,6 +43,7 @@ class Book(models.Model):
   )
   author = models.ForeignKey(Author, on_delete=models.CASCADE,null = True)
   is_bestselling = models.BooleanField(default=False)
+  published_countries = models.ManyToManyField(Country,null=False)
   slug = models.SlugField(default="",blank = True,null=False,db_index=True)
 
 
