@@ -11,18 +11,22 @@ Blog App
 {% include "blog/includes/navigation.html" %}
 
 <section class="top-posts">
-  <h1>{{post.name}}</h1>
+  <h1>{{post.title}}</h1>
   <div class="single-post-container">
     <!-- <img src="" alt=""> -->
+    {% for tag in tags%}
+    <span>{{tag.caption}}</span>
+    {% endfor %}
     <div class="single-post-img-container">
       <div class="single-post-img">
-        <img src={% static "blog/images/"|add:post.image %} alt="" width="90%">
+        <img src={% static "blog/images/"|add:post.image_name %} alt="" width="90%">
        
       </div>
     </div>
 
     <p class="single-post-content">
-      {{post.fullContent}}
+      {{post.content}}
+      <address><a href="mailto:{{post.author.email_address}}">{{post.author}}</a></address>
     </p>
     
   </div>

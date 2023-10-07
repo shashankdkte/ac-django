@@ -1,8 +1,8 @@
 {% load static %}
 <li class="top-posts_list_single">
   <a href="{% url "post-detail-page" post.slug %}">
-  <img src="{% static "blog/images/"|add:post.image %}" alt="" />
-  <h3 style="margin-bottom:1rem" >{{post.name}}</h3>
+  <img src="{% static "blog/images/"|add:post.image_name %}" alt="" />
+  <h3 style="margin-bottom:1rem" >{{post.title}}</h3>
   <p>{{post.content}}
   </p>
   <time>{{post.date}}<time>

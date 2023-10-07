@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from datetime import date
-
+from .models import Tag,Author,Post
 all_posts = [
    {
       "name":"The Garden Resort",
@@ -54,21 +54,23 @@ def get_date(post):
 # Create your views here.
 def starting_page(request):
   sorted_posts = sorted(all_posts, key=get_date);
-  sorted_posts = sorted_posts[-3:]
+  sorted_posts = Post.objects.all().order_by("-date")[:3]
   return render(request, "blog/index.html",{
      "latest_posts":sorted_posts
   })
 
 
 def posts(request):
-  latest_posts = all_posts
+  latest_posts = Post.objects.all().order_by("-title")
   return render(request, "blog/all_posts.html",{
      "latest_posts":latest_posts
   })
 
 
 def post_detail(request,slug):
-    identified_post = next(post for post in all_posts if post['slug'] == slug)
+    
+    identified_post =Post.objects.get(slug = slug)
     return render(request, "blog/single-post-detail.html", {
-       "post":identified_post
+       "post":identified_post,
+       "tags":identified_post.tags.all()
     })
