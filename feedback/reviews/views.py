@@ -8,11 +8,7 @@ def review(request):
     form = ReviewForm(request.POST)
 
     if form.is_valid():
-      Review.objects.create(
-        user_name = form.cleaned_data['user_name'],
-        review_text = form.cleaned_data['review_text'],
-        rating = form.cleaned_data['rating'],
-        )
+      form.save()
       return HttpResponseRedirect("/thankyou")
   else:
     form  = ReviewForm()
