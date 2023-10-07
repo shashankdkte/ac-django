@@ -6,19 +6,17 @@ from .models import Review
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView,DetailView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import FormView,CreateView
 # Create your views here.
 
 
 
-class ReviewView(FormView):
+class ReviewView(CreateView):
+ model = Review
  form_class = ReviewForm
  template_name = "reviews/review.html"
  success_url = "/thankyou"
 
- def form_valid(self, form: Any):
-   form.save()
-   return super().form_valid(form)
 
 
 class ThankYouView(TemplateView):
