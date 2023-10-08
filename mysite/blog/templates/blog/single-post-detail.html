@@ -11,6 +11,14 @@ Blog App
 {% block content %}
 {% include "blog/includes/navigation.html" %}
 
+{% if comment_form.errors %}
+  <div id="alert">
+    <h2>Saving the comment failed!</h2>
+    <p>Please check the comment form below the post and fix your erros.</p>
+    <a href="#comment-form">Fix!</a>
+  </div>
+{% endif %}
+
 <section class="top-posts">
   <h1>{{post.title}}</h1>
   <div class="single-post-container">
@@ -40,16 +48,28 @@ Blog App
   {{post.content | linebreaks}}
 </main>
 
+<section id="comments">
+  <ul>
+    {% for comment in comments %}
+      <li>
+        <h2>{{ comment.user_name }}</h2>
+        <p>{{ comment.text|linebreaks }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
 
 <section id="comment-form">
   <h2>Your Comments</h2>
   <form action="{% url "post-detail-page" post.slug %}" method="post">
     {% csrf_token %}
     {% for form_field in comment_form  %}
+    <div class="form-control">
       {{form_field.label_tag}}
       {{form_field}}
       {{form_field.errors}}
-    {% endfor %}
+    </div> 
+      {% endfor %}
     <button>Save</button>
   </form>
 </section>
