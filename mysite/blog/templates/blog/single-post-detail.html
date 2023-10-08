@@ -19,7 +19,9 @@ Blog App
     {% endfor %}
     <div class="single-post-img-container">
       <div class="single-post-img">
-        <img src={% static "blog/images/"|add:post.image_name %} alt="" width="90%">
+        {% if post.image %}
+        <img src={{post.image.url}} alt="" width="90%">
+        {% endif %}
        
       </div>
     </div>

@@ -1,7 +1,13 @@
 {% load static %}
 <li class="top-posts_list_single">
   <a href="{% url "post-detail-page" post.slug %}">
-  <img src="{% static "blog/images/"|add:post.image_name %}" alt="" />
+    {% if post.image %}
+  <img src="{{post.image.url}}" alt="" />
+
+    {% else %}
+  <img src="{% static "blog/images/natur-img6.jpg"%}" alt="" />
+
+    {% endif %}
   <h3 style="margin-bottom:1rem" >{{post.title}}</h3>
   <p>{{post.content}}
   </p>
