@@ -6,3 +6,5 @@ urlpatterns = [
     path("posts",views.AllPostsView.as_view(),name="posts-page"),
     path("posts/<slug:slug>",views.SinglePostView.as_view(),name="post-detail-page"),
 ]
+# http://127.0.0.1:8000/posts/trouble-with-bliss-the
+# http://127.0.0.1:8000/posts/trouble-with-bliss-the
